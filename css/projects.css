@@ -1,0 +1,380 @@
+/* Project cards: compact, consistent spacing without forced blank lines. */
+.project-template-link {
+  perspective: 1000px;
+  display: block;
+  height: 100%;
+}
+
+.is-tilting .pj-glare {
+  opacity: 1;
+}
+
+.project-template-card {
+  gap: 0.7rem;
+}
+
+.project-template-title-text {
+  line-height: 1.35;
+  min-height: 0;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.project-template-desc {
+  flex: 0 0 auto;
+  height: auto;
+  min-height: 0;
+  line-height: 1.5;
+  margin: 0;
+  text-align: left !important;
+  text-align-last: auto;
+  text-justify: auto;
+  word-spacing: normal;
+  letter-spacing: normal;
+  hyphens: none;
+  overflow-wrap: break-word;
+  word-break: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-template-card .project-template-tags {
+  margin-top: 0;
+  min-height: 0;
+  align-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .project-template-card {
+    gap: 0.55rem;
+  }
+
+  .project-template-title-text {
+    min-height: 0;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .project-template-desc {
+    height: auto;
+    min-height: 0;
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    margin: 0;
+    text-align: left !important;
+    word-spacing: normal;
+    letter-spacing: normal;
+  }
+
+  .project-template-card .project-template-tags {
+    margin-top: 0;
+  }
+}
+
+
+/* Compact, consistent project cards across desktop, tablet and mobile */
+.projects-template-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(.85rem, 1.6vw, 1.2rem);
+  align-items: stretch;
+}
+.project-template-link { min-width: 0; height: 100%; }
+.project-template-card {
+  min-width: 0;
+  height: 100%;
+  min-height: 0;
+  padding: clamp(1rem, 1.6vw, 1.35rem);
+  gap: .7rem;
+  align-items: stretch;
+}
+.project-template-top { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.project-template-title-text { font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.3; overflow-wrap: anywhere; }
+.project-template-desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  min-height: calc(1.48em * 3);
+  max-height: calc(1.48em * 4);
+  font-size: .91rem;
+  line-height: 1.48;
+  overflow-wrap: anywhere;
+}
+.project-template-card .project-template-tags { margin-top: auto; padding-top: .15rem; gap: .35rem; }
+.project-template-tag { font-size: .67rem; line-height: 1.35; padding: .22rem .48rem; max-width: 100%; overflow-wrap: anywhere; }
+@media (min-width: 620px) {
+  .projects-template-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1000px) {
+  .projects-template-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 619px) {
+  .projects-template-grid { grid-template-columns: minmax(0, 1fr); gap: .85rem; }
+  .project-template-card { padding: 1rem; gap: .6rem; }
+  .project-template-title-text { font-size: 1.02rem; }
+  .project-template-desc { font-size: .91rem; min-height: 0; max-height: none; -webkit-line-clamp: 4; }
+  .project-template-card .project-template-tags { margin-top: .1rem; }
+}
+
+/* Final project card layout: natural description height, no forced blank space, tidy on mobile */
+.projects-template-grid { align-items: stretch; }
+.project-template-link { display: flex; height: auto; }
+.project-template-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+  gap: .65rem;
+  padding: 1.25rem 1.25rem 1.1rem;
+  text-align: left;
+}
+.project-template-top { margin-bottom: .1rem; }
+.project-template-title-text { margin: 0; font-size: 1.05rem; line-height: 1.3; }
+.project-template-desc {
+  display: block;
+  margin: 0;
+  min-height: 0;
+  max-height: none;
+  height: auto;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  font-size: .92rem;
+  line-height: 1.5;
+  text-align: left !important;
+  text-justify: auto;
+  text-align-last: auto;
+  word-spacing: normal;
+  letter-spacing: normal;
+  hyphens: manual;
+  overflow-wrap: break-word;
+}
+.project-template-card .project-template-tags { margin-top: auto; padding-top: .1rem; }
+@media (max-width: 619px) {
+  .projects-template-grid { gap: .8rem; }
+  .project-template-card { padding: 1rem; gap: .55rem; }
+  .project-template-title-text { font-size: 1rem; }
+  .project-template-desc { font-size: .9rem; line-height: 1.45; }
+}
+
+/* Description: max 3 lines on every card, equal box height so tags align; text is kept short in config.js */
+.project-template-card .project-template-desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding-right: .3rem;
+  font-size: .9rem;
+  line-height: 1.5;
+  height: calc(1.5em * 3);
+  min-height: calc(1.5em * 3);
+  max-height: calc(1.5em * 3);
+  text-align: left !important;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+@media (max-width: 619px) {
+  .project-template-card .project-template-desc { font-size: .88rem; }
+}
+
+
+/* Final readable project-description alignment across desktop and mobile. */
+.project-template-card .project-template-desc{
+  text-align:justify !important;
+  text-align-last:left !important;
+  text-justify:inter-word;
+  hyphens:auto;
+  overflow-wrap:normal;
+  word-break:normal;
+  letter-spacing:normal;
+  word-spacing:normal;
+  padding-right:0;
+  line-height:1.58;
+}
+@media(max-width:619px){.project-template-card .project-template-desc{line-height:1.55;text-align:justify !important;text-align-last:left !important;}}
+
+
+/* Consistent, natural project-description alignment for every project card. */
+.project-template-card .project-template-desc {
+  text-align: left !important;
+  text-align-last: left !important;
+  text-justify: auto;
+  hyphens: none;
+  overflow-wrap: break-word;
+  word-break: normal;
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+@media (max-width: 619px) {
+  .project-template-card .project-template-desc {
+    text-align: left !important;
+    text-align-last: left !important;
+    line-height: 1.55;
+  }
+}
+
+
+/* Final fix: show complete project descriptions and justify their text consistently. */
+.project-template-card {
+  height: 100%;
+  min-height: 0;
+}
+.project-template-card .project-template-desc {
+  display: block !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  text-align: justify !important;
+  text-align-last: left !important;
+  text-justify: inter-word;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+  line-height: 1.55;
+  margin: 0;
+}
+.project-template-card .project-template-tags {
+  margin-top: auto !important;
+}
+@media (max-width: 619px) {
+  .project-template-card .project-template-desc {
+    text-align: justify !important;
+    text-align-last: left !important;
+    line-height: 1.5;
+  }
+}
+
+
+/* Keep justified project copy neat without exaggerated inter-word gaps. */
+.project-template-card .project-template-desc {
+  text-align: justify !important;
+  text-align-last: left !important;
+  text-justify: inter-word;
+  word-spacing: -0.025em;
+  letter-spacing: -0.008em;
+  hyphens: auto;
+  overflow-wrap: normal;
+  line-height: 1.52;
+  font-size: .89rem;
+}
+@media (max-width: 619px) {
+  .project-template-card .project-template-desc {
+    font-size: .88rem;
+    line-height: 1.5;
+    word-spacing: -0.02em;
+    letter-spacing: -0.006em;
+  }
+}
+
+
+/* Final typography: complete copy, true justification, and controlled word spacing. */
+.project-template-card .project-template-desc {
+  display: block !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: justify !important;
+  text-align-last: left !important;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: normal;
+  word-spacing: normal;
+  letter-spacing: normal;
+  line-height: 1.52;
+  text-wrap: pretty;
+}
+.project-template-card .project-template-tags {
+  margin-top: auto !important;
+}
+@media (max-width: 619px) {
+  .project-template-card .project-template-desc {
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+}
+
+
+/* ===== Project description: equal left/right edges, natural word spacing ===== */
+.project-template-card .project-template-desc {
+  display: block !important;
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  margin: 0;
+  padding: 0;
+  font-size: .89rem;
+  line-height: 1.55;
+  text-align: justify !important;      /* both edges equal */
+  text-align-last: left !important;    /* last line stays natural, no big gap */
+  text-justify: inter-word;
+  hyphens: none;                       /* no hyphen signs inside words */
+  -webkit-hyphens: none;
+  overflow-wrap: break-word;
+  word-break: normal;
+  letter-spacing: normal;
+  word-spacing: -0.02em;               /* tightens the gaps justify creates */
+}
+@media (max-width: 619px) {
+  .project-template-card .project-template-desc {
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+}
+
+
+/* Final description rhythm: justified edges without exaggerated word gaps. */
+.project-template-card .project-template-desc {
+  display: block !important;
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  margin: 0;
+  padding: 0;
+  text-align: justify !important;
+  text-align-last: left !important;
+  text-justify: inter-word;
+  word-spacing: -0.025em;
+  letter-spacing: normal;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: normal;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+@media (max-width: 619px) {
+  .project-template-card .project-template-desc {
+    font-size: .9rem;
+    line-height: 1.5;
+    word-spacing: -0.02em;
+  }
+}

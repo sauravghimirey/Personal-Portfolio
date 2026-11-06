@@ -1,0 +1,311 @@
+
+
+@media (max-width: 639px) {
+  .section.section-hero {
+    min-height: 0;
+    align-items: flex-start;
+    padding-bottom: 0.25rem;
+  }
+
+  .section.about-template {
+    padding-top: 0.5rem;
+  }
+
+  .about-template-header {
+    margin-bottom: 1.25rem;
+  }
+
+  
+  .ab-grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (hover: none) {
+  .ab-tile:hover {
+    --ly: 0px;
+    border-color: var(--color-border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .ab-tile:active {
+    border-color: rgba(var(--olive-rgb), 0.55);
+    box-shadow: 0 14px 28px -18px rgba(var(--olive-rgb), 0.6);
+  }
+
+  .project-template-card:hover {
+    transform: none;
+  }
+
+  .project-template-card:hover .project-template-icon,
+  .project-template-card:hover .project-template-tag {
+    transform: none;
+  }
+
+  .project-template-card:active {
+    transform: scale(0.985);
+  }
+
+  .bv-frame:active {
+    transform: scale(0.985);
+    box-shadow: 0 12px 25px rgba(25, 20, 12, 0.24);
+  }
+
+  .bv-frame:active .bv-media img:not(.bv-blur) {
+    transform: scale(1.035);
+  }
+
+  .ab-tile-mini:active {
+    transform: scale(0.97);
+    border-color: var(--olive-mid);
+  }
+
+  .contact-card:hover {
+    transform: none;
+  }
+
+  .contact-card:hover .contact-icon-wrapper {
+    transform: none;
+  }
+
+  .contact-card:active {
+    transform: scale(0.99);
+    border-radius: var(--r-lg);
+    background: rgba(var(--olive-rgb), 0.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-template-card:active,
+  .bv-frame:active,
+  .ab-tile-mini:active,
+  .contact-card:active {
+    transform: none;
+  }
+}
+
+
+/* Mobile layout fixes */
+@media (max-width: 639px) {
+  .navbar {
+    padding: 0.45rem 0;
+  }
+
+  .navbar-inner {
+    width: 100%;
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
+    min-height: 42px;
+  }
+
+  .navbar-actions {
+    right: 0.65rem;
+    gap: 0.35rem;
+  }
+
+  .navbar-actions .theme-toggle,
+  .navbar-actions .hamburger {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+  }
+
+  .section.section-hero {
+    padding-top: 4.5rem;
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
+    padding-bottom: 1rem;
+  }
+
+  .hero-grid {
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .hero-copy,
+  .hero-panel {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .hero-title {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-name {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .hero-panel-list {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    line-height: 1.55;
+  }
+
+  .hero-slogan {
+    position: static;
+    flex: 0 0 auto;
+    width: 100%;
+    margin-top: 0.4rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+  }
+
+  .hs-sa {
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .hs-en {
+    line-height: 1.5;
+    margin-top: 0.25rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar-inner {
+    padding-left: 0.45rem;
+    padding-right: 0.45rem;
+  }
+
+  .navbar-actions {
+    right: 0.45rem;
+    gap: 0.25rem;
+  }
+
+  .navbar-actions .theme-toggle,
+  .navbar-actions .hamburger {
+    width: 33px;
+    height: 33px;
+    flex-basis: 33px;
+  }
+
+  .section.section-hero {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .hero-panel {
+    padding: 0.9rem;
+  }
+}
+
+
+/* Final mobile refinements: consistent hero card width and comfortable spacing. */
+@media (max-width: 639px) {
+  .hero-panel {
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem 1.05rem 1.1rem;
+    align-items: stretch;
+  }
+  .hero-scene {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    aspect-ratio: 400 / 280;
+  }
+  .hero-panel > div:not(.hero-scene) {
+    width: 100%;
+  }
+  .hero-panel-title { margin-bottom: 0.35rem; }
+  .hero-panel-list { gap: 0.35rem; }
+}
+
+/* ===== Mobile: one shared side gutter for every section, no hyphen signs in copy ===== */
+@media (max-width: 619px) {
+  #home,
+  #about,
+  #projects,
+  #beyond,
+  #contact {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .hero-subtitle,
+  .project-template-card .project-template-desc {
+    hyphens: none;
+    -webkit-hyphens: none;
+  }
+}
+
+/* Mobile: education title on one line; project copy tighter so justified lines show fewer gaps */
+@media (max-width: 619px) {
+  .project-template-card .project-template-desc {
+    letter-spacing: -0.01em;
+    word-spacing: -0.06em;
+    font-size: .88rem;
+  }
+}
+
+/* Mobile: more breathing room between stacked cards */
+@media (max-width: 619px) {
+  .ab-grid { gap: 1.5rem; }
+  .projects-template-grid { gap: 1.4rem; }
+  .project-template-card { gap: .75rem; }
+  .hero-grid { gap: 1.5rem; }
+}
+
+/* ===== Mobile: header subtitles justified on both edges; Quick Highlights stays still on touch ===== */
+@media (max-width: 639px) {
+  .hero-subtitle,
+  .projects-template-subtitle,
+  .bv-subtitle,
+  .contact-template-subtitle {
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+  }
+
+  .hero-panel.card-3d,
+  .hero-panel.card-3d:hover {
+    transform: none !important;
+  }
+}
+
+/* ===== Touch screens: hero card scrolls the page normally and is responsive ===== */
+@media (max-width: 639px), (hover: none) {
+  .hero-panel.card-3d,
+  .hero-panel.card-3d * {
+    touch-action: pan-y;
+  }
+
+  /* 3D perspective and will-change create heavy layers on phones and can stall
+     vertical scrolling over the card. Flat rendering keeps the card calm. */
+  .hero-panel.card-3d {
+    perspective: none;
+    transform-style: flat;
+    will-change: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero-panel.card-3d:hover {
+    box-shadow: var(--shadow-sm);
+    border-color: var(--color-border);
+  }
+
+  /* Lighter layers so scrolling over the card follows the finger right away. */
+  .hero-panel.card-3d,
+  .reveal-scale.hero-panel {
+    transition: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .hero-scene img {
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+}

@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+    <meta name="description" content="" />
+    <meta name="theme-color" content="#415B06" />
+    <link rel="icon" href="Assets/header-background.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@600;700&family=Mrs+Saint+Delafield&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css?v=41" />
+    <link rel="stylesheet" href="css/loader.css?v=23" />
+    <script src="js/loader.js?v=15" defer></script>
+    <link rel="stylesheet" href="css/home.css?v=10" />
+    <link rel="stylesheet" href="css/about.css?v=4" />
+    <link rel="stylesheet" href="css/projects.css?v=13" />
+    <link rel="stylesheet" href="css/beyond.css" />
+    <link rel="stylesheet" href="css/viewer.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/responsive.css?v=3" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+      .main-content section[id] {
+        scroll-margin-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+  <div id="signature-loader" role="status" aria-label="Loading portfolio">
+    <div class="ld-texture" aria-hidden="true"></div>
+    <svg class="ld-corner ld-corner-tl" viewBox="0 0 470 310" aria-hidden="true">
+      <path class="ld-leaf" d="M0,300 C120,225 260,120 352,0 L0,0 Z" />
+      <path class="ld-arc" pathLength="1" d="M0,300 C120,225 260,120 352,0" />
+    </svg>
+    <svg class="ld-corner ld-corner-br" viewBox="0 0 482 321" aria-hidden="true">
+      <path class="ld-leaf" d="M482,0 C310,30 110,160 0,321 L482,321 Z" />
+      <path class="ld-arc ld-arc-2" pathLength="1" d="M482,0 C310,30 110,160 0,321" />
+    </svg>
+    <div class="ld-content">
+      <div class="ld-mark" aria-hidden="true">
+        <svg class="ld-rings ld-orbit" viewBox="-120 -120 240 240">
+          <circle r="114" />
+          <circle class="ld-dot" cx="66" cy="-93" r="4.5" />
+          <circle class="ld-dot" cx="-112" cy="-20" r="4.5" />
+          <circle class="ld-dot" cx="-62" cy="96" r="4.5" />
+          <circle class="ld-dot" cx="94" cy="64" r="4.5" />
+        </svg>
+        <svg class="ld-rings" viewBox="-120 -120 240 240">
+          <circle class="ld-ring-inner" r="93" />
+        </svg>
+        <img class="ld-letters ld-letters-light" src="Assets/loader-sg-letters-light.png" alt="" />
+        <img class="ld-letters ld-letters-dark" src="Assets/loader-sg-letters-dark.png" alt="" />
+      </div>
+      <h1 class="ld-name">Saurav Ghimire</h1>
+      <div class="ld-meta"><span>INITIALIZING EXPERIENCE...</span></div>
+      <div class="ld-track"><div id="loader-progress"></div></div>
+      <span id="loader-percent">0%</span>
+    </div>
+  </div>
+    <div class="canvas-container" id="canvas-container"></div>
+    <div class="app-container">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="navbar-inner">
+          <div class="navbar-pill" role="menubar">
+            <a href="#home" class="nav-pill-link active">Home</a
+            ><a href="#about" class="nav-pill-link">About</a
+            ><a href="#projects" class="nav-pill-link">Projects</a
+           ><a href="#beyond" class="nav-pill-link">Side Quests</a
+            ><a href="#contact" class="nav-pill-link">Contact</a
+            ><a
+              href="https://drive.google.com/file/d/1R90wg9K3i7X7esJbuAOQyY4NVjQv7XgS/view?usp=sharing"
+              data-resume
+              target="_blank"
+              rel="noreferrer"
+              class="nav-pill-link nav-pill-action"
+              >Resume</a
+            >
+          </div>
+          <div class="navbar-actions">
+            <div class="accent-wrap">
+              <button
+                type="button"
+                class="theme-toggle accent-toggle"
+                id="accent-toggle"
+                aria-label="Change accent colour"
+                aria-expanded="false"
+                aria-haspopup="true"
+                title="Accent colour"
+              >
+                <svg
+                  class="accent-ico"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.9"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="13.5" cy="6.5" r=".6" fill="currentColor" />
+                  <circle cx="17.5" cy="10.5" r=".6" fill="currentColor" />
+                  <circle cx="8.5" cy="7.5" r=".6" fill="currentColor" />
+                  <circle cx="6.5" cy="12.5" r=".6" fill="currentColor" />
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
+                  />
+                </svg>
+              </button>
+              <div class="accent-pop" id="accent-pop" hidden role="menu">
+                <button
+                  type="button"
+                  class="accent-sw"
+                  data-accent="olive"
+                  style="--sw: #415b06"
+                  aria-label="Olive"
+                  role="menuitem"
+                >
+                  <i></i><span>Olive</span></button
+                ><button
+                  type="button"
+                  class="accent-sw"
+                  data-accent="terracotta"
+                  style="--sw: #a0462a"
+                  aria-label="Terracotta"
+                  role="menuitem"
+                >
+                  <i></i><span>Terracotta</span></button
+                ><button
+                  type="button"
+                  class="accent-sw"
+                  data-accent="teal"
+                  style="--sw: #0f766e"
+                  aria-label="Teal"
+                  role="menuitem"
+                >
+                  <i></i><span>Teal</span></button
+                ><button
+                  type="button"
+                  class="accent-sw"
+                  data-accent="ink"
+                  style="--sw: #27498a"
+                  aria-label="Ink Blue"
+                  role="menuitem"
+                >
+                  <i></i><span>Ink Blue</span></button
+                ><button
+                  type="button"
+                  class="accent-sw"
+                  data-accent="plum"
+                  style="--sw: #7a2f69"
+                  aria-label="Plum"
+                  role="menuitem"
+                >
+                  <i></i><span>Plum</span></button
+                ><button
+                  type="button"
+                  class="accent-sw"
+                  data-accent="ochre"
+                  style="--sw: #a06f0a"
+                  aria-label="Ochre"
+                  role="menuitem"
+                >
+                  <i></i><span>Ochre</span>
+                </button>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="theme-toggle"
+              id="theme-toggle"
+              aria-label="Switch to dark mode"
+              title="Dark mode"
+            >
+              <span id="icon-moon"
+                ><svg
+                  class="lucide"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></svg></span
+              ><span id="icon-sun" hidden
+                ><svg
+                  class="lucide"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2" />
+                  <path d="M12 20v2" />
+                  <path d="m4.93 4.93 1.41 1.41" />
+                  <path d="m17.66 17.66 1.41 1.41" />
+                  <path d="M2 12h2" />
+                  <path d="M20 12h2" />
+                  <path d="m6.34 17.66-1.41 1.41" />
+                  <path d="m19.07 4.93-1.41 1.41" /></svg
+              ></span>
+            </button>
+            <button
+              type="button"
+              class="hamburger"
+              id="hamburger"
+              aria-label="Toggle mobile menu"
+              aria-expanded="false"
+            >
+              <svg
+                class="lucide"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M4 12h16" />
+                <path d="M4 18h16" />
+                <path d="M4 6h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <div class="mobile-overlay" id="mobile-overlay" aria-hidden="true"></div>
+      <div
+        class="mobile-menu"
+        id="mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile navigation"
+      >
+        <div class="mobile-menu-header">
+          <div class="navbar-logo">
+            <span class="bracket">&lt;</span>MENU<span class="bracket">/&gt;</span>
+          </div>
+          <button type="button" class="close-btn" id="close-menu" aria-label="Close menu">
+            <svg
+              class="lucide"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          </button>
+        </div>
+        <nav class="mobile-nav-links">
+          <a href="#home" class="mobile-nav-link active"
+            ><svg
+              class="lucide"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+              <path
+                d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+              /></svg
+            ><span>Home</span></a
+          ><a href="#about" class="mobile-nav-link"
+            ><svg
+              class="lucide"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" /></svg
+            ><span>About</span></a
+          ><a href="#projects" class="mobile-nav-link"
+            ><svg
+              class="lucide"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m18 16 4-4-4-4" />
+              <path d="m6 8-4 4 4 4" />
+              <path d="m14.5 4-5 16" /></svg
+            ><span>Projects</span></a
+          ><a href="#beyond" class="mobile-nav-link"
+            ><svg
+              class="lucide"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="m14.31 8 5.74 9.94" />
+              <path d="M9.69 8h11.48" />
+              <path d="m7.38 12 5.74-9.94" />
+              <path d="M9.69 16 3.95 6.06" />
+              <path d="M14.31 16H2.83" />
+              <path d="m16.62 12-5.74 9.94" /></svg
+            ><span>Side Quests</span></a
+          ><a href="#contact" class="mobile-nav-link"
+            ><svg
+              class="lucide"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+              <rect x="2" y="4" width="20" height="16" rx="2" /></svg
+            ><span>Contact</span></a
+          ><a href="https://drive.google.com/file/d/1R90wg9K3i7X7esJbuAOQyY4NVjQv7XgS/view?usp=sharing" data-resume target="_blank" rel="noreferrer" class="mobile-nav-link"
+            ><svg
+              class="lucide"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+              <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+              <path d="M10 9H8" />
+              <path d="M16 13H8" />
+              <path d="M16 17H8" /></svg
+            ><span>Resume</span></a
+          >
+        </nav>
+        <div class="mobile-menu-footer">
+          <p style="font-size: 0.75rem; color: var(--color-text-muted); text-align: center">
+            © <span class="year"></span> <span class="copy-name"></span>
+          </p>
+        </div>
+      </div>
+      <main class="main-content">
+        
+        <!-- Home section shell. Keep its IDs/classes; JavaScript fills the content. -->
+<section id="home" class="section section-hero">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="hero-eyebrow reveal-up"></p>
+              <h1 class="hero-title reveal-up delay-1" aria-label="">
+                <span class="hero-name"></span
+                ><span class="tw-line" aria-hidden="true"
+                  ><span id="tw" class="tw-text text-gradient-shimmer" data-words=""></span
+                  ><span class="tw-caret"></span
+                ></span>
+              </h1>
+              <p class="hero-subtitle reveal-up delay-2"></p>
+              <div class="hero-buttons reveal-up delay-3">
+                <a href="#contact" class="btn btn-primary"><svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a2 2 0 0 0 3-3"/><path d="m14 14 4 4a2 2 0 0 0 3-3l-7-7"/><path d="m3 11 5-5 5 1 3-1 5 5"/><path d="m3 11 7 7a2 2 0 0 0 3-3"/><path d="m2 10 4-4"/><path d="m22 10-3-3"/></svg>Get in Touch</a
+                ><a
+                  href="https://drive.google.com/file/d/1R90wg9K3i7X7esJbuAOQyY4NVjQv7XgS/view?usp=sharing"
+                  data-resume
+                  target="_blank"
+                  rel="noreferrer"
+                  class="btn btn-outline"
+                  >Download Resume</a
+                >
+              </div>
+            </div>
+            <div class="hero-panel glass-strong card-3d reveal-scale">
+              <div class="hero-scene">
+                <img class="hero-gif" src="Assets/hero-portrait.gif" width="1000" height="756" alt="Animated illustration of a man in a beanie typing on a laptop" decoding="async" />
+              </div>
+              <div>
+                <p class="hero-panel-title">Quick highlights</p>
+                <ul class="hero-panel-list"></ul>
+              </div>
+              <div class="hero-slogan">
+                <p class="hs-sa" lang="sa"></p>
+                <p class="hs-en"></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- About section shell. Keep its IDs/classes; JavaScript fills the content. -->
+<section id="about" class="section about-template">
+          <div class="about-template-header">
+            <h2 class="section-heading">About <span class="text-gradient-shimmer">Me</span></h2>
+          </div>
+          <div class="ab-grid" id="about-grid"></div>
+        </section>
+
+        <!-- Projects section shell. Keep its IDs/classes; JavaScript fills the content. -->
+<section id="projects" class="section projects-template">
+          <div class="projects-template-background" aria-hidden="true">
+            <div class="projects-orb projects-orb-left"></div>
+            <div class="projects-orb projects-orb-right"></div>
+          </div>
+          <div class="projects-template-header">
+            <span class="projects-template-eyebrow"></span>
+            <h2 class="section-heading projects-template-title"></h2>
+            <p class="projects-template-subtitle"></p>
+          </div>
+          <div class="projects-template-grid"></div>
+          <div class="projects-template-footer"></div>
+        </section>
+
+        <!-- Beyond section shell. Keep its IDs/classes; JavaScript fills the content. -->
+<section id="beyond" class="section beyond-template">
+          <div class="bv-bg" aria-hidden="true">
+            <div class="bv-orb bv-orb-a"></div>
+            <div class="bv-orb bv-orb-b"></div>
+          </div>
+          <div class="bv-header">
+            <span class="bv-eyebrow"></span>
+            <h2 class="section-heading bv-title"></h2>
+            <p class="bv-subtitle"></p>
+          </div>
+          <ul class="bv-grid" aria-label="Photo gallery"></ul>
+        </section>
+
+        <!-- Contact section shell. Keep its IDs/classes; JavaScript fills the content. -->
+<section id="contact" class="section contact-template">
+          <div class="contact-template-header">
+            <span class="contact-template-eyebrow"></span>
+            <h2 class="section-heading"></h2>
+            <p class="contact-template-subtitle"></p>
+          </div>
+          <div class="contact-template-grid">
+            <div class="contact-template-info reveal-left"></div>
+            <form id="contact-form" class="glass-strong contact-form contact-template-form reveal-right">
+              <h3 class="form-title">Send a Message</h3>
+              <div class="form-group">
+                <label class="form-label" for="from_name">Your Name</label
+                ><input id="from_name" type="text" name="from_name" required class="form-input" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="from_email">Your Email</label
+                ><input id="from_email" type="email" name="from_email" required class="form-input" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="message">Message</label
+                ><textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                  class="form-input"
+                  style="resize: vertical"
+                ></textarea>
+              </div>
+              <div id="form-status" class="form-status" hidden></div>
+              <button type="submit" id="submit-btn" class="btn btn-primary btn-submit"><svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4Z"/></svg><span>Send Message</span></button>
+            </form>
+          </div>
+        </section>
+
+        <footer class="site-footer" role="contentinfo">
+          <div class="fc-inner">
+            <span class="fc-sign" aria-hidden="true"></span>
+            <ul class="fc-social"></ul>
+            <small class="fc-copy"
+              >© <span class="year"></span> <span class="copy-name"></span> | Learning. Building. Evolving.</small
+            >
+          </div>
+        </footer>
+      </main>
+    </div>
+    <script src="js/config.js?v=2"></script>
+    <script src="js/core/helpers.js"></script>
+    <script src="js/render/common.js"></script>
+    <script src="js/render/home.js"></script>
+    <script src="js/render/about.js"></script>
+    <script src="js/render/projects.js"></script>
+    <script src="js/render/beyond.js"></script>
+    <script src="js/render/contact.js"></script>
+    <script src="js/core/theme.js"></script>
+    <script src="js/core/navigation.js"></script>
+    <script src="js/core/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/effects/starfield.js"></script>
+    <script src="js/effects/typewriter.js"></script>
+    <script src="js/effects/tilt.js"></script>
+    <script src="js/core/viewer.js"></script>
+    <script src="js/pages/about-certificates.js?v=3"></script>
+    <script src="js/pages/beyond-gallery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/pages/contact-form.js"></script>
+  </body>
+</html>

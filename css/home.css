@@ -1,0 +1,85 @@
+
+
+.ws-steam.s2 {
+  animation-delay: -1.2s;
+}
+
+@media (max-width: 899px) {
+  .section-hero {
+    padding-bottom: 2rem;
+  }
+}
+
+/* Hero workspace: the man at the desk. Head sways slightly, eyes blink,
+   both hands keep typing. Only transforms are animated, so the SVG keeps
+   its exact size and position inside the existing hero panel. */
+.ws-head {
+  transform-origin: 113px 128px;
+  animation: wsHead 3.8s ease-in-out infinite;
+}
+
+.ws-lid {
+  transform: scaleY(0);
+  animation: wsBlinkLid 4.6s ease-in-out infinite;
+}
+
+.ws-hand {
+  animation: wsTypeHand 0.36s ease-in-out infinite alternate;
+}
+
+.ws-hand-r {
+  animation-delay: -0.25s;
+}
+
+@keyframes wsHead {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50% { transform: rotate(-3deg) translateY(1.2px); }
+}
+
+@keyframes wsBlinkLid {
+  0%, 89%, 100% { transform: scaleY(0); }
+  92% { transform: scaleY(1); }
+  95% { transform: scaleY(0); }
+}
+
+@keyframes wsTypeHand {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ws-head,
+  .ws-lid,
+  .ws-hand {
+    animation: none;
+  }
+}
+
+/* Hero GIF: fills the same 400:280 scene box the SVG used, so the panel
+   keeps its exact size. No background on the scene: the GIF's transparent
+   areas show the panel itself. */
+.hero-scene {
+  position: relative;
+  width: 302px;
+  max-width: 100%;
+  aspect-ratio: 400 / 280; /* same 302x212 box the SVG scene had */
+  background: none;
+}
+
+.hero-gif {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* No inner frame around the hero GIF: the outer hero panel is the only card. */
+.hero-scene {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+  background: none;
+}

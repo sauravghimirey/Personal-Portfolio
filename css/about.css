@@ -1,0 +1,258 @@
+
+
+.cert-card:nth-child(n + 4) {
+  grid-column: span 3;
+}
+
+.cert-card:hover .cert-view {
+  text-decoration: underline;
+}
+
+@media (max-width: 899px) {
+  .cert-card,
+  .cert-card:nth-child(n + 4) {
+    grid-column: auto;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 899px) {
+  .ab-profile,
+  .ab-craft,
+  .ab-certs,
+  .ab-edge {
+    grid-column: 1/-1;
+  }
+}
+
+.ab-marquee:hover .ab-track {
+  animation-play-state: paused;
+}
+
+.cx-btn:focus-visible,
+.cert-card:focus-visible {
+  outline: 2px solid var(--olive);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .ab-marquees {
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+  }
+}
+
+@media (max-width: 899px) {
+  .ab-photo img {
+    object-position: center 22%;
+  }
+}
+
+.ab-profile > .ab-deco {
+  right: -26px;
+  bottom: -30px;
+}
+
+.ab-edu-title {
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+.ab-edu-place {
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+.ab-badge {
+  max-width: 100%;
+}
+
+.cert-card {
+  will-change: transform, opacity;
+}
+
+.cx-viewport.drag {
+  cursor: grabbing;
+}
+
+.cert-card.is-active:active {
+  scale: 0.985;
+}
+
+@media (hover: none) {
+  .cert-card.is-active:hover {
+    scale: 1;
+  }
+}
+
+.ab-tile-mini:hover {
+  transform: translateY(-3px);
+  border-color: var(--olive-mid);
+}
+
+.tm-ic img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.tm-txt {
+  font: 800 1.05rem/1 var(--font-mono);
+  color: #e65100;
+  letter-spacing: 0.02em;
+}
+
+.tm-label {
+  font: 600 0.74rem/1.2 var(--font-body);
+  color: var(--color-text);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.ab-craft .ab-marquees {
+  margin: auto -1.8rem 0;
+  padding: 1.6rem 0 1.2rem;
+  gap: 1rem;
+}
+
+.ab-craft .ab-marquees .ab-marquee.tiles .ab-track {
+  gap: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+@media (max-width: 899px) {
+  .ab-craft .ab-marquees {
+    margin: auto -1.4rem 0;
+    padding: 1.3rem 0 1rem;
+  }
+}
+
+
+/* Certificate carousel: touch handling, soft card shadows, and a plain
+   text swipe hint. The hint has no pill, no background and no overlay. */
+.cx { position: relative; }
+.cx-viewport { touch-action: pan-y; cursor: grab; }
+.cx-viewport.drag { cursor: grabbing; }
+
+/* Soft, light shadow under each certificate card (kept inside the viewport). */
+.cert-card {
+  box-shadow: 0 8px 16px -12px rgba(var(--olive-rgb), 0.28);
+}
+.cert-card:hover,
+.cert-card:focus-visible,
+.cert-card.is-active:hover {
+  box-shadow: 0 12px 18px -14px rgba(var(--olive-rgb), 0.34);
+}
+
+/* Swipe hint: small grey line, centred under the cards, with two short
+   arrows that nudge left and right. It is hidden once the visitor swipes. */
+.cx-swipe-hint {
+  display: flex;
+  position: static;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  transform: none;
+  color: #8a8b7a;
+  font: 600 0.68rem/1.2 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.cx-swipe-hint::before,
+.cx-swipe-hint::after {
+  content: "";
+  width: 16px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: currentColor;
+  opacity: 0.55;
+}
+.cx-swipe-hint::before { animation: cx-hint-l 1.6s ease-in-out infinite; }
+.cx-swipe-hint::after { animation: cx-hint-r 1.6s ease-in-out infinite; }
+@keyframes cx-hint-l {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-4px); }
+}
+@keyframes cx-hint-r {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+.cx-swipe-hint.is-visible { opacity: 1; visibility: visible; }
+.cx-swipe-hint.is-dismissed { display: none; }
+.cx-swipe-hint span { display: inline; }
+
+.cx {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  /* Extra room on the sides and bottom so the soft shadow is not clipped. */
+  .cert-card {
+    inset: 10px 6px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cx-swipe-hint { transition: none; }
+  .cx-swipe-hint::before,
+  .cx-swipe-hint::after { animation: none; }
+}
+
+
+/* The swipe cue is a mobile-only instruction placed below the certificate. */
+.cx-swipe-hint { display: none; }
+@media (max-width: 767px) {
+  .cx-swipe-hint {
+    display: flex;
+    position: static;
+    width: 100%;
+    margin: 0.55rem auto 0.15rem;
+    padding: 0.15rem 0;
+    white-space: normal;
+    font-size: clamp(0.58rem, 2.5vw, 0.68rem);
+    letter-spacing: 0.09em;
+    line-height: 1.35;
+    color: #858675;
+    text-align: center;
+  }
+  .cx-swipe-hint::before, .cx-swipe-hint::after {
+    flex: 0 0 14px;
+  }
+  .cx {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .cx-viewport { margin-bottom: 0; }
+}
+
+/* Education timeline: larger, easier-to-read degree titles (wrap instead of shrinking) */
+.ab-edu .ab-edu-list .ab-edu-title {
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  white-space: normal;
+  overflow-wrap: normal;
+  text-wrap: balance;
+}
+.ab-edu .ab-edu-list .ab-edu-place { font-size: 0.95rem; }
+@media (max-width: 640px) {
+  .ab-edu .ab-edu-list .ab-edu-title {
+    font-size: 1.05rem;
+    letter-spacing: 0;
+    white-space: normal;
+    text-wrap: balance;
+  }
+}
